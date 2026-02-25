@@ -1,0 +1,38 @@
+body {
+  margin: 0px;
+  top: 0px;
+}
+.warpper {
+  border: 1px solid #000;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+.header {
+  border: 1px solid #7070db;
+  height: 130px;
+  width: 100%;
+  background-color: #7070db;
+}
+.menu {
+  border: 1px solid #ff1a1a;
+  height: 40px;
+  width: 100%;
+  background-color: #ff1a1a;
+}
+#Main {
+  border: 1px solid #88cc00;
+  height: 400px;
+  width: 100%;
+}
+.sidebar {
+  border: 1px solid #88cc00;
+  height: 300px;
+  width: 20%;
+}
+.footer {
+  border: 1px solid#990000;
+  height: 150px;
+  width: 100%;
+  background-color: #990000;
+}
