@@ -9,30 +9,118 @@ body {
   margin: 0 auto;
 }
 .header {
-  border: 1px solid #7070db;
-  height: 130px;
+  border: 1px solid #ec8084;
+  height: 190px;
   width: 100%;
-  background-color: #7070db;
+  /* background-color: #d7db70; */
+  background-image: url(../images/Banner.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .menu {
-  border: 1px solid #ff1a1a;
+  border: 1px solid #ff4d00;
   height: 40px;
   width: 100%;
-  background-color: #ff1a1a;
+  background-color: #6785f1;
+}
+.List_menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
+  margin: 0 auto;
+}
+.List_menu li {
+  padding: 3px;
+  margin: 7px;
+  float: left;
+}
+.List_menu li:hover {
+  background-color: antiquewhite;
+}
+ul.List_menu li a {
+  text-decoration: none;
+  text-align: center;
+  color: #990000;
 }
 #Main {
   border: 1px solid #88cc00;
-  height: 400px;
+  height: auto;
   width: 100%;
 }
 .sidebar {
-  border: 1px solid #88cc00;
-  height: 300px;
+  border: 1px solid #4b00cc;
+  height: 390px;
   width: 20%;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: left;
+}
+.List_sideBar {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 90%;
+}
+.List_sideBar li {
+  padding: 3px;
+  margin: 7px;
+}
+.List_sideBar li:hover {
+  background-color: rgb(250, 215, 168);
+}
+ul.List_sideBar li a {
+  text-decoration: none;
+  text-align: left;
+  color: #5900ff;
+  display: block;
+}
+.maincontent {
+  border: 1px solid #4b00cc;
+  height: auto;
+  width: 78%;
+  margin-top: 5px;
+  margin-right: 5px;
+  float: right;
+}
+.Product_List {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  width: 100%;
+}
+.Product_List li {
+  width: 18%;
+  border: 1px dashed #000;
+  margin: 7px;
+  float: left;
+  background-color: antiquewhite;
+}
+.Product_List li img {
+  width: 100%;
+}
+.Product_List {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  width: 100%;
+}
+.Product_List li a {
+  text-decoration: none;
+}
+.product_List {
+  font-weight: bold;
+}
+.price_List {
+  font-weight: bold;
+  color: red;
+}
+.clear {
+  clear: both;
 }
 .footer {
   border: 1px solid#990000;
   height: 150px;
   width: 100%;
-  background-color: #990000;
+  background-color: #8152f9;
 }
