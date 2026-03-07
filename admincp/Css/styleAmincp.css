@@ -1,0 +1,25 @@
+.wrapperAdmincd {
+  border: 1px solid #000;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+ul.admincp_list {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+ul.admincp_list li {
+  float: left;
+  margin: 5px;
+  /* text-decoration: none; */
+}
+.clear {
+  clear: both;
+}
+h3.title_admin {
+  font-size: 40px;
+  text-align: center;
+  color: blue;
+}
