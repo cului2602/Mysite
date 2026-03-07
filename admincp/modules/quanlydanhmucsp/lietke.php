@@ -20,7 +20,8 @@ while($row = mysqli_fetch_array($query_lietke_danhmucsp)){
     <td><?php echo $i ?></td>
     <td><?php echo $row['tendanhmuc'] ?></td>
     <td>
-        <a href="??action=quanlydanhmucsanpham&query=xoa">Xoá</a> | <a href="??action=quanlydanhmucsanpham&query=sua">Sửa</a>
+        <a href="modules/quanlydanhmucsp/xuly.php?query=xoa&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Xoá</a>
+         |  <a href="?action=quanlydanhmucsanpham&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</a>
     </td>
 </tr>
 

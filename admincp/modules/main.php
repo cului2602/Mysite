@@ -1,17 +1,27 @@
 <div class="clear"></div>
-<div class="mainAmincp">
-    <?php
-    if (isset($_GET['action'])) {
-        $tam = $_GET['action'];
-    } else {
-        $tam = '';
-    }
+<div class="mainAdmincp">
+<?php
+if (isset($_GET['action']) && isset($_GET['query'])) {
+    $tam = $_GET['action'];
+    $query = $_GET['query'];
+} else {
+    $tam = '';
+    $query = '';
+}
 
-    if ($tam == 'quanlydanhmucsanpham') {
-        include("modules/quanlydanhmucsp/them.php");
-        include("modules/quanlydanhmucsp/lietke.php");
-    } else {
-        include("modules/dashboard.php");
-    }
-    ?>
+if ($tam == 'quanlydanhmucsanpham' && $query == 'them') {
+    include("modules/quanlydanhmucsp/them.php");
+    include("modules/quanlydanhmucsp/lietke.php");
+} elseif ($tam == 'quanlydanhmucsanpham' && $query == 'sua') {
+    include("modules/quanlydanhmucsp/sua.php");
+}elseif ($tam == 'quanlysanpham' && $query == 'them') {
+    include("modules/quanlysp/them.php");
+    include("modules/quanlysp/lietke.php");
+}elseif ($tam == 'quanlysanpham' && $query == 'sua') {
+    include("modules/quanlysp/sua.php");
+}
+ else {
+    include("modules/dashboard.php");
+}
+?>
 </div>

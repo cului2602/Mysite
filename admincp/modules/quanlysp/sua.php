@@ -1,0 +1,74 @@
+<?php
+$sql_sua_sp = "SELECT * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' LIMIT 1";
+$query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
+?>
+
+<p>Sửa sản phẩm</p>
+
+<table border="1" width="50%" style="border-collapse: collapse;">
+    <?php
+    while ($dong = mysqli_fetch_array($query_sua_sp)) {
+    ?>
+        <form method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $dong['id_sanpham'] ?>" enctype="multipart/form-data">
+            <tr>
+                <td>Tên sản phẩm</td>
+                <td><input type="text" name="tensanpham" value="<?php echo $dong['tensanpham'] ?>"></td>
+            </tr>
+            <tr>
+                <td>Mã sản phẩm</td>
+                <td><input type="text" name="masp" value="<?php echo $dong['masp'] ?>"></td>
+            </tr>
+            <tr>
+                <td>Giá sản phẩm</td>
+                <td><input type="text" name="giasp" value="<?php echo $dong['giasp'] ?>"></td>
+            </tr>
+            <tr>
+                <td>Số lượng</td>
+                <td><input type="text" name="soluong" value="<?php echo $dong['soluong'] ?>"></td>
+            </tr>
+            <tr>
+                <td>Hình ảnh</td>
+                <td>
+                    <input type="file" name="hinhanh">
+                    <br>
+                    <img src="uploads/<?php echo $dong['hinhanh']; ?>" width="150px">
+                </td>
+            </tr>
+            <tr>
+                <td>Tóm tắt</td>
+                <td><textarea rows="5" name="tomtat"><?php echo $dong['tomtat'] ?></textarea></td>
+            </tr>
+            <tr>
+                <td>Nội dung</td>
+                <td><textarea rows="5" name="noidung"><?php echo $dong['noidung'] ?></textarea></td>
+            </tr>
+            <tr>
+                <td>Tình trạng</td>
+                <td>
+                    <select name="tinhtrang">
+                        <?php
+                        if ($dong['tinhtrang'] == 1) {
+                        ?>
+                            <option value="1" selected>Kích hoạt</option>
+                            <option value="0">Ẩn</option>
+                        <?php
+                        } else {
+                        ?>
+                            <option value="1">Kích hoạt</option>
+                            <option value="0" selected>Ẩn</option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="suasanpham" value="Sửa sản phẩm">
+                </td>
+            </tr>
+        </form>
+    <?php
+    }
+    ?>
+</table>
