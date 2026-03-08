@@ -22,5 +22,9 @@ $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
         <li><a href="index.php?quanly=tintuc">Tin tức</a></li>
         <li><a href="index.php?quanly=lienhe">Liên hệ</a></li>
     </ul>
+    <form action="index.php?quanly=timkiem" method="POST" class="search-form">
+        <input type="text" name="tukhoa" placeholder="Tìm sản phẩm, bài viết...">
+        <input type="submit" name="timkiem" value="Tìm">
+    </form>
     <div class="clear"></div>
 </div>

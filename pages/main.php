@@ -22,6 +22,8 @@
             include("main/tintuc.php");
         } elseif ($tam == 'lienhe') {
             include("main/lienhe.php");
+        } elseif ($tam == 'timkiem') {
+            include("main/timkiem.php");
         } else {
             include("main/index.php");
         }

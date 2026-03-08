@@ -24,9 +24,9 @@ body {
 .menu {
   width: 100%;
   height: 50px;
-  border: 1px solid #ff4d00;
-  border-bottom: 1px solid yellowgreen;
   background: #617de8;
+  border-top: 1px solid #ff4d00;
+  border-bottom: 1px solid yellowgreen;
   position: relative;
   z-index: 999;
 }
@@ -35,12 +35,12 @@ ul.List_menu {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  align-items: center;
+  float: left;
 }
 
 ul.List_menu > li {
   position: relative;
+  float: left;
   margin: 0;
   padding: 0;
 }
@@ -141,46 +141,58 @@ ul.List_sideBar li a {
 }
 
 .maincontent {
-  width: 80%; /* phần còn lại */
+  width: 75%;
+  min-height: 700px;
   margin-top: 5px;
   margin-right: 5px;
   border: 1px solid #4b00cc;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 /* PRODUCT LIST */
 .Product_List {
   list-style: none;
-  width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .Product_List li {
-  float: left;
-  width: 18%;
-  margin: 7px;
+  width: 220px;
   border: 1px dashed #000;
   background-color: antiquewhite;
+  box-sizing: border-box;
 }
 
 .Product_List li img {
   width: 100%;
-  height: auto;
+  height: 220px;
+  object-fit: cover;
   display: block;
 }
 
 .Product_List li a {
   text-decoration: none;
+  display: block;
 }
 
 .product_List {
   font-weight: bold;
+  color: #4b0082;
+  padding: 8px;
+  margin: 0;
+  min-height: 50px;
 }
 
 .price_List {
   font-weight: bold;
   color: red;
+  padding: 0 8px 10px 8px;
+  margin: 0;
 }
 
 .clear {
@@ -212,4 +224,62 @@ ul.List_sideBar li a {
 .thongtin_sanpham h2 {
   margin-top: 0;
   color: #333;
+}
+/* Css cho List trang */
+.list_trang {
+  list-style: none;
+  margin-top: auto; /* đẩy xuống đáy */
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.list_trang li {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #999;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.list_trang li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.list_trang li:hover {
+  background: #ddd;
+}
+/* phan Tim kiem */
+.search-form {
+  float: right;
+  margin-top: 9px;
+  margin-right: 15px;
+}
+
+.search-form input[type="text"] {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-form input[type="submit"] {
+  height: 30px;
+  padding: 0 12px;
+  border: none;
+  background: #ff6600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-form input[type="submit"]:hover {
+  background: #e65c00;
 }

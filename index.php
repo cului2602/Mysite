@@ -10,7 +10,11 @@
 
 <body>
   <div class="warpper">
-    <?php 
+    <?php
+    session_start();
+    include("admincp/config/config.php");
+    ?>
+    <?php
     include("admincp/config/config.php");
     include("pages/header.php");
     include("pages/menu.php");
