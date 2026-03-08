@@ -1,28 +1,31 @@
 <div id="Main">
-    <?php
-    include("sidebar/sidebar.php")
-    ?>
-    <div class="maincontent">
 
+    <div class="sidebar">
         <?php
-        if (isset($_GET['quanly'])) {
-            $tam = $_GET['quanly'];
-        } else {
-            $tam = '';
-        }
+        include("sidebar/sidebar.php");
+        ?>
+    </div>
+
+    <div class="maincontent">
+        <?php
+        $tam = $_GET['quanly'] ?? '';
 
         if ($tam == 'danhmucsanpham') {
             include("main/danhmuc.php");
+        } elseif ($tam == 'tatcasp') {
+            include("main/tatcasp.php");
+        } elseif ($tam == 'sanpham') {
+            include("main/chitietsp.php");
         } elseif ($tam == 'giohang') {
             include("main/giohang.php");
         } elseif ($tam == 'tintuc') {
             include("main/tintuc.php");
-        } elseif ($tam == 'lienhe_') {
+        } elseif ($tam == 'lienhe') {
             include("main/lienhe.php");
-        }
-        else{
+        } else {
             include("main/index.php");
         }
         ?>
     </div>
+
 </div>

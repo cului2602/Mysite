@@ -1,9 +1,18 @@
- <div class="sidebar">
-     <ul class="List_sideBar">
-         <li><a href="#">Ốp lưng</a></li>
-         <li><a href="#">Tai nghe</a></li>
-         <li><a href="#">Cục sạc</a></li>
-         <li><a href="#">Dán màn hình</a></li>
-         <li><a href="#">Gậy tự sướng</a></li>
-     </ul>
- </div>
+<?php
+$sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY thutu ASC";
+$query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
+?>
+
+<ul class="List_sideBar">
+    <?php
+    while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){
+    ?>
+        <li>
+            <a href="index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc']; ?>">
+                <?php echo $row_danhmuc['tendanhmuc']; ?>
+            </a>
+        </li>
+    <?php
+    }
+    ?>
+</ul>

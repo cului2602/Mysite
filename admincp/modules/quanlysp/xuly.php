@@ -1,6 +1,6 @@
 <?php
 include('../../config/config.php');
-
+$id_danhmuc = $_POST['danhmuc'];
 $tensanpham = $_POST['tensanpham'] ?? '';
 $masp = $_POST['masp'] ?? '';
 $giasp = $_POST['giasp'] ?? '';
@@ -8,22 +8,23 @@ $soluong = $_POST['soluong'] ?? '';
 $tomtat = $_POST['tomtat'] ?? '';
 $noidung = $_POST['noidung'] ?? '';
 $tinhtrang = $_POST['tinhtrang'] ?? '';
-
+$id_danhmuc = $_POST['danhmuc'];
 $hinhanh = $_FILES['hinhanh']['name'] ?? '';
 $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'] ?? '';
-
+// Them san pham 
 if (isset($_POST['themsanpham'])) {
 
     $tenfile = '';
-    if ($hinhanh != '') {
-        $tenfile = time() . '_' . $hinhanh;
+
+    if (!empty($hinhanh)) {
+        $tenfile = time() . '_' . basename($hinhanh);
         move_uploaded_file($hinhanh_tmp, '../../uploads/' . $tenfile);
     }
 
     $sql_them = "INSERT INTO tbl_sanpham
-    (tensanpham, masp, giasp, soluong, hinhanh, tomtat, noidung, tinhtrang)
+    (tensanpham, masp, giasp, soluong, hinhanh, tomtat, noidung, tinhtrang, id_danhmuc)
     VALUES
-    ('" . $tensanpham . "', '" . $masp . "', '" . $giasp . "', '" . $soluong . "', '" . $tenfile . "', '" . $tomtat . "', '" . $noidung . "', '" . $tinhtrang . "')";
+    ('".$tensanpham."', '".$masp."', '".$giasp."', '".$soluong."', '".$tenfile."', '".$tomtat."', '".$noidung."', '".$tinhtrang."', '".$id_danhmuc."')";
 
     mysqli_query($mysqli, $sql_them);
     header('Location:../../index.php?action=quanlysanpham&query=them');
@@ -46,6 +47,8 @@ if (isset($_POST['themsanpham'])) {
         move_uploaded_file($hinhanh_tmp, '../../uploads/' . $tenfile);
 
         $sql_update = "UPDATE tbl_sanpham SET
+        
+        id_danhmuc='".$id_danhmuc."'
         tensanpham='" . $tensanpham . "',
         masp='" . $masp . "',
         giasp='" . $giasp . "',
@@ -53,7 +56,7 @@ if (isset($_POST['themsanpham'])) {
         hinhanh='" . $tenfile . "',
         tomtat='" . $tomtat . "',
         noidung='" . $noidung . "',
-        tinhtrang='" . $tinhtrang . "'
+        tinhtrang='" . $tinhtrang . "',
         WHERE id_sanpham='" . $id . "'";
     } else {
 
@@ -64,7 +67,8 @@ if (isset($_POST['themsanpham'])) {
         soluong='" . $soluong . "',
         tomtat='" . $tomtat . "',
         noidung='" . $noidung . "',
-        tinhtrang='" . $tinhtrang . "'
+        tinhtrang='" . $tinhtrang . "',
+        id_danhmuc='".$id_danhmuc."',
         WHERE id_sanpham='" . $id . "'";
     }
 

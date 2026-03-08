@@ -1,29 +1,16 @@
 <?php
-$id = $_GET['id'];
-
-$sql_cate = "SELECT * FROM tbl_danhmuc WHERE id_danhmuc = '" . $id . "' LIMIT 1";
-$query_cate = mysqli_query($mysqli, $sql_cate);
-
-$sql_pro = "SELECT * FROM tbl_sanpham 
-WHERE id_danhmuc = '" . $id . "' 
-ORDER BY id_sanpham DESC";
+$sql_pro = "SELECT * FROM tbl_sanpham
+WHERE tinhtrang = 1
+ORDER BY id_sanpham DESC
+LIMIT 10";
 
 $query_pro = mysqli_query($mysqli, $sql_pro);
 ?>
 
-<?php
-while ($row_title = mysqli_fetch_array($query_cate)) {
-?>
-    <h3>Danh mục sản phẩm: <?php echo $row_title['tendanhmuc']; ?></h3>
-<?php
-}
-?>
+<h3>10 sản phẩm mới nhất</h3>
 
 <ul class="Product_List">
-    <?php
-    while ($row_pro = mysqli_fetch_array($query_pro)) {
-    ?>
-        <li>
+    <?php while ($row_pro = mysqli_fetch_array($query_pro)) { ?>
         <li>
             <a href="index.php?quanly=sanpham&id=<?php echo $row_pro['id_sanpham']; ?>">
                 <img src="admincp/uploads/<?php echo $row_pro['hinhanh']; ?>">
@@ -33,9 +20,7 @@ while ($row_title = mysqli_fetch_array($query_cate)) {
                 </p>
             </a>
         </li>
-        </li>
-    <?php
-    }
-    ?>
+    <?php } ?>
 </ul>
+
 <div class="clear"></div>
