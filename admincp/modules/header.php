@@ -5,7 +5,11 @@
     </div>
 
     <div class="admin-header-right">
-        <span>Xin chào: <strong><?php echo htmlspecialchars($_SESSION['dangnhapadmin']); ?></strong></span>
+        <span>
+            Xin chào:
+            <strong><?php echo htmlspecialchars($_SESSION['dangnhapadmin']); ?></strong>
+            (<?php echo htmlspecialchars($_SESSION['admin_role'] ?? ''); ?>)
+        </span>
         <a href="logout.php" class="btn-logout">Đăng xuất</a>
     </div>
 </header>

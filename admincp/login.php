@@ -30,8 +30,11 @@ if (isset($_POST['dangnhap'])) {
                 $matkhau_db = $row['password'];
                 $hop_le = false;
 
-                // Hỗ trợ cả mật khẩu thường lẫn password_hash
-                if (strpos($matkhau_db, '$2y$') === 0 || strpos($matkhau_db, '$2a$') === 0 || strpos($matkhau_db, '$argon2') === 0) {
+                if (
+                    strpos($matkhau_db, '$2y$') === 0 ||
+                    strpos($matkhau_db, '$2a$') === 0 ||
+                    strpos($matkhau_db, '$argon2') === 0
+                ) {
                     if (password_verify($password, $matkhau_db)) {
                         $hop_le = true;
                     }
@@ -45,6 +48,7 @@ if (isset($_POST['dangnhap'])) {
                     $_SESSION['dangnhapadmin'] = $row['username'];
                     $_SESSION['id_admin'] = $row['id_admin'];
                     $_SESSION['admin_status'] = $row['admin_status'];
+                    $_SESSION['admin_role'] = $row['admin_role'];
 
                     header("Location: index.php");
                     exit();
@@ -93,10 +97,6 @@ if (isset($_POST['dangnhap'])) {
 
                 <button type="submit" name="dangnhap" class="btn-login">Đăng nhập</button>
             </form>
-
-            <div class="login-footer">
-                Mysite Admin Panel
-            </div>
         </div>
     </div>
 </body>
