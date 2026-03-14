@@ -1,5 +1,9 @@
 <?php
-$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    $id = 0;
+}
 
 $lietke = 8;
 
@@ -39,11 +43,11 @@ $trang = ceil($row_count / $lietke);
                 <a href="index.php?quanly=sanpham&id=<?php echo $row_pro['id_sanpham']; ?>">
                     <img src="admincp/uploads/<?php echo $row_pro['hinhanh']; ?>" alt="<?php echo $row_pro['tensanpham']; ?>">
 
-                    <p class="product_List">
+                    <p class="product_list">
                         Tên sản phẩm: <?php echo $row_pro['tensanpham']; ?>
                     </p>
 
-                    <p class="price_List">
+                    <p class="price_list">
                         Giá sản phẩm:
                         <?php echo number_format((float)str_replace('.', '', $row_pro['giasp']), 0, ',', '.'); ?> vnd
                     </p>

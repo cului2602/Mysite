@@ -26,7 +26,11 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
                 <td><?php echo $cart_item['tensanpham']; ?></td>
                 <td><img src="admincp/uploads/<?php echo $cart_item['hinhanh']; ?>" width="100"></td>
                 <td><?php echo $cart_item['masp']; ?></td>
-                <td><?php echo $cart_item['soluong']; ?></td>
+                <td>
+                    <a href="pages/main/xulygiohang.php?tru=<?php echo $cart_item['id']; ?>">-</a>
+                    <span><?php echo $cart_item['soluong']; ?></span>
+                    <a href="pages/main/xulygiohang.php?cong=<?php echo $cart_item['id']; ?>">+</a>
+                </td>
                 <td><?php echo number_format((float)str_replace('.', '', $cart_item['giasp']), 0, ',', '.'); ?> vnd</td>
                 <td><?php echo number_format($thanhtien, 0, ',', '.'); ?> vnd</td>
             </tr>
